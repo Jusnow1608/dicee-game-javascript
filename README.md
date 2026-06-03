@@ -2,6 +2,16 @@
 
 A simple, interactive web-based dice game built using HTML, CSS, and Vanilla JavaScript. The game logic uses JavaScript DOM manipulation to simulate rolling two dice, compare their values, and immediately declare a winner upon reloading the webpage.
 
+## 📝 Table of Contents
+- [🚀 Features](#-features)
+- [🛠️ Technologies Used](#️-technologies-used)
+- [📸 Screenshots](#-screenshots)
+- [📁 Project Structure](#-project-structure)
+- [💡 How the JavaScript Logic Works](#-how-the-javascript-logic-works)
+- [🕹️ Getting Started](#️-getting-started)
+
+---
+
 ## 🚀 Features
 * **Dynamic Logic:** Generates random dice values (1 to 6) dynamically upon every page refresh.
 * **DOM Manipulation:** Seamlessly updates HTML `src` and `innerHTML` properties at runtime without third-party frameworks.
@@ -16,11 +26,24 @@ A simple, interactive web-based dice game built using HTML, CSS, and Vanilla Jav
 
 ---
 ## Screenshot
-![Player 1 Wins](./images/solution.png)
+<figure>
+  <img src="./images/solution.png" alt="Player 1 Wins" />
+  <figcaption><i>Figure 1: State evaluation where Player 1 rolls a higher value than Player 2, triggering a dynamic <code>&lt;h1&gt;</code> text update.</i></figcaption>
+</figure>
 
-![Player 2 Wins](./images/solution1.png)
+<br>
 
-![Draw](./images/solution2.png)
+<figure>
+  <img src="./images/solution1.png" alt="Player 2 Wins" />
+  <figcaption><i>Figure 2: State evaluation where Player 2 rolls a higher value, dynamically changing the main header to declare Player 2 the winner.</i></figcaption>
+</figure>
+
+<br>
+
+<figure>
+  <img src="./images/solution2.png" alt="Draw" />
+  <figcaption><i>Figure 3: Tie-state logic block triggered when both computational dice variables yield identical values, rendering a "Draw!" message.</i></figcaption>
+</figure>
 
 ## 📁 Project Structure
 The repository contains the following architecture:
@@ -42,10 +65,11 @@ The repository contains the following architecture:
 The execution pipeline follows a precise, linear lifecycle when the browser compiles the document:
 - State Initialization: The program computes two independent pseudo-random variables bounded within a strict numeric spectrum:
 
-$$\text{Result} = \lfloor \text{Math.random()} \times 6 \rfloor + 1$$
+$$\text{Result} = \text{Math.floor}(\text{Math.random}() \times 6) + 1$$
+
 - String Interpolation Mapping: The script dynamically generates a file-path string combining the numeric result with the asset template configuration:"images/dice" + randomNumber + ".png"
 - Attribute Rerouting: The engine executes target selection queries on .img1 and .img2, using the singular .setAttribute() interface wrapper to bind the newly compiled source path.
-- Conditional Branching: An if / else if / else pipeline assesses the winning state hierarchy, rewriting the global <h1> header's inner text to display "Player 1 Wins!", "Player 2 Wins!", or "Draw!".
+- Conditional Branching: An if / else if / else pipeline assesses the winning state hierarchy, rewriting the global h1 header's inner text to display "Player 1 Wins!", "Player 2 Wins!", or "Draw!".
 
 ---
 
